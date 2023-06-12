@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Slider</title>
-</head>
-<body>
-    
-</body>
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <title>Slider</title>
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+
+    <body>
+
+        <div id="app">
+
+            <div class="container">
+                <div class="slider-wrapper" tabindex="0">
+                   
+                    <div class="item">
+                        <img v-bind:src="slider[activeSlide].image" v-bind:alt="slider[activeSlide].title" />
+                        <div class="text">
+                            <h3>{{ slider[activeSlide].title }}</h3>
+                            <p>{{ slider[activeSlide].text }}</p>
+                        </div>
+                    </div> 
+                    </div>
+                    <div class="thumbs">
+                        <div class="prev" @click="prevSlide"></div>
+                        <div class="next" @click="nextSlide"></div>
+                        <div class="thumb" v-for="(slide, index) in slider" v-bind:class="activeSlide === index ? 'active' : ''" @click="clickedActiveSlide(index)">
+                            <img v-bind:src="slide.image" alt="Svezia" />
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        
+        <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+        <script src="./script/script.js"></script>
+
+    </body>
+
 </html>
